@@ -18,4 +18,14 @@ export const sendWelcomeEmail = async ({
     `{{intro}}`,
     intro
   );
+
+  const mailOptions = {
+    from: `"Signalist <signalist@sujal.com"`,
+    to: email,
+    subject: `Welcome to Signalist - your stock market toolkit is ready!`,
+    text: "Thanks for joining Signalist",
+    html: htmlTemplate,
+  };
+
+  await transporter.sendMail(mailOptions);
 };
