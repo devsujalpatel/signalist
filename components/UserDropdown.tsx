@@ -14,19 +14,19 @@ import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import { LogOut } from "lucide-react";
 import { NavItems } from "./NavItems";
+import { signOut } from "@/lib/actions/auth.actions";
 
-export const UserDropdown = () => {
+export const UserDropdown = ({ user }: { user: User }) => {
   const router = useRouter();
 
   const handleSingOut = async () => {
+    await signOut();
     router.push("/sign-in");
   };
 
-  const user = { name: "John", email: "sujal@gmail.com" };
-
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="outline-none ">
+      <DropdownMenuTrigger className="outline-none" asChild>
         <Button
           variant={"ghost"}
           className="flex items-center gap-3 text-gray-400 hover:text-yellow-500 outline-none"
