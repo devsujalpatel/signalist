@@ -15,18 +15,16 @@ import { Button } from "./ui/button";
 import { LogOut } from "lucide-react";
 import { NavItems } from "./NavItems";
 
-export const UserDropdown = () => {
+export const UserDropdown = ({ user }: { user: User }) => {
   const router = useRouter();
 
   const handleSingOut = async () => {
     router.push("/sign-in");
   };
 
-  const user = { name: "John", email: "sujal@gmail.com" };
-
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="outline-none ">
+      <DropdownMenuTrigger className="outline-none" asChild>
         <Button
           variant={"ghost"}
           className="flex items-center gap-3 text-gray-400 hover:text-yellow-500 outline-none"
