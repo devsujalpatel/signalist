@@ -155,10 +155,7 @@ export const searchStocks = cache(
               displaySymbol: symbol,
               type: "Common Stock",
             };
-            // We don't include exchange in FinnhubSearchResult type, so carry via mapping later using profile
-            // To keep pipeline simple, attach exchange via closure map stage
-            // We'll reconstruct exchange when mapping to final type
-            (r as any).__exchange = exchange; // internal only
+            (r as any).__exchange = exchange;
             return r;
           })
           .filter((x): x is FinnhubSearchResult => Boolean(x));
