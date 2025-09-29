@@ -124,7 +124,6 @@ export const sendDailyNewsSummary = inngest.createFunction(
       }
     }
 
-    // Step #4: (placeholder) Send the emails
     await step.run("send-news-emails", async () => {
       await Promise.all(
         userNewsSummaries.map(async ({ user, newsContent }) => {
