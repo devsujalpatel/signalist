@@ -38,7 +38,7 @@ const SignUp = () => {
   const onSubmit = async (data: SignUpFormData) => {
     try {
       const result = await signUpWithEmail(data);
-
+      toast.success("Account created successfully");
       if (result.success) {
         router.push("/");
       }
